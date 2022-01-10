@@ -108,8 +108,10 @@ if ssh -q git@github.com &>/dev/null; [ $? -eq 255 ]; then
 	goOn
 else
 	echo "successfully authenticated to GitHub"
+	read -p "ancora nel if"
 fi
 
+read -p "fuori dal if"
 echo ""
 echo "testo la connessione ssh con GitHub"
 ssh -T git@github.com	# test your SSH connection to GitHub
