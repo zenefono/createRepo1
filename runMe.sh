@@ -76,7 +76,7 @@ if [ ! -f ./README.md ]; then
 fi
  
 if [ ! -d ./.git ]; then
-	read -p "Inizializzo il repository..."
+	echo "Inizializzo il repository..."
 	git init
 fi
 
@@ -107,13 +107,10 @@ if ssh -q git@github.com &>/dev/null; [ $? -eq 255 ]; then
 	genAndAddSshKey
 	goOn
 else
-	read -p "ancora nel if"
 	ssh -T git@github.com	# test your SSH connection to GitHub
 	echo "successfully authenticated to GitHub!!"
-	read -p "ancora nel if"
 fi
 
-read -p "fuori dal if"
 echo ""
 echo "testo la connessione ssh con GitHub"
 ssh -T git@github.com	# test your SSH connection to GitHub
@@ -122,8 +119,8 @@ ssh -T git@github.com	# test your SSH connection to GitHub
 
 read -p "Go to https://github.com/new $userName user of GitHub and create a new empty repository named \"$repoName\", then press enter... "
 #git remote rm origin
-git remote add origin git@github.com:$userName/$repoName.git
 git branch --set-upstream-to=origin/main main
+git remote add origin git@github.com:$userName/$repoName.git
 git push -u origin main
 
 
