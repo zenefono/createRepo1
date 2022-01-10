@@ -118,36 +118,38 @@ echo ""
 echo "testo la connessione ssh con GitHub"
 ssh -T git@github.com	# test your SSH connection to GitHub
 
-commitMk
+#commitMk
 
+read -p "Go to https://github.com/new $userName user of GitHub and create a new empty repository named \"$repoName\", then press enter... "
 #git remote rm origin
-#git remote add origin git@github.com:$userName/$repoName.git
-#git push -u origin main
+git remote add origin git@github.com:$userName/$repoName.git
+git branch --set-upstream-to=origin/main main
+git push -u origin main
 
 
-# https://gist.github.com/robwierzbowski/5430952/
-# Create and push to a new github repo from the command line.  
-# Grabs sensible defaults from the containing folder and `.gitconfig`.  
-# Refinements welcome.
+## https://gist.github.com/robwierzbowski/5430952/
+## Create and push to a new github repo from the command line.  
+## Grabs sensible defaults from the containing folder and `.gitconfig`.  
+## Refinements welcome.
 
-# Gather constant vars
-CURRENTDIR=${PWD##*/}
-#GITHUBUSER=$(git config github.user)
-GITHUBUSER=$userName
+## Gather constant vars
+#CURRENTDIR=${PWD##*/}
+##GITHUBUSER=$(git config github.user)
+#GITHUBUSER=$userName
 
-# Get user input
-read "REPONAME?New repo name (enter for ${PWD##*/}):"
-read "USER?Git Username (enter for ${GITHUBUSER}):"
-read "DESCRIPTION?Repo Description:"
+## Get user input
+#read "REPONAME?New repo name (enter for ${PWD##*/}):"
+#read "USER?Git Username (enter for ${GITHUBUSER}):"
+#read "DESCRIPTION?Repo Description:"
 
-echo "Here we go..."
+#echo "Here we go..."
 
-# Curl some json to the github API oh damn we so fancy
-curl -u ${USER:-${GITHUBUSER}} https://api.github.com/user/repos -d "{\"name\": \"${REPONAME:-${CURRENTDIR}}\", \"description\": \"${DESCRIPTION}\", \"private\": false, \"has_issues\": true, \"has_downloads\": true, \"has_wiki\": false}"
+## Curl some json to the github API oh damn we so fancy
+#curl -u ${USER:-${GITHUBUSER}} https://api.github.com/user/repos -d "{\"name\": \"${REPONAME:-${CURRENTDIR}}\", \"description\": \"${DESCRIPTION}\", \"private\": false, \"has_issues\": true, \"has_downloads\": true, \"has_wiki\": false}"
 
-# Set the freshly created repo to the origin and push
-# You'll need to have added your public key to your github account
-git remote set-url origin git@github.com:${USER:-${GITHUBUSER}}/${REPONAME:-${CURRENTDIR}}.git
-git push --set-upstream origin master
+## Set the freshly created repo to the origin and push
+## You'll need to have added your public key to your github account
+#git remote set-url origin git@github.com:${USER:-${GITHUBUSER}}/${REPONAME:-${CURRENTDIR}}.git
+#git push --set-upstream origin master
 
 exit 0
