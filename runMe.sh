@@ -76,7 +76,7 @@ if [ ! -f ./README.md ]; then
 fi
  
 if [ ! -d ./.git ]; then
-	echo "Inizializzo il repository..."; sleep 2
+	read -p "Inizializzo il repository..."
 	git init
 fi
 
@@ -90,7 +90,7 @@ git add -A
 
 git commit -m "Initial commit" # non mi piace, vorrei scriverlo prima (commitMk!)
 
-echo "########################################################"; echo ""
+echo "# eseguito il commit iniziale #######################################################"; echo ""
 #git config --list; echo ""
 
 
