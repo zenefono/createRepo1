@@ -50,7 +50,7 @@ commitMk() {
 
 ################################
 git_check
-
+rm ./runMe.sh
 # import bash functions
 git clone https://github.com/zenefono/bash_functions.git
 . ./bash_functions/testFunctions.sh
