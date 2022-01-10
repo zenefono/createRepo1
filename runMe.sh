@@ -108,7 +108,8 @@ if ssh -q git@github.com &>/dev/null; [ $? -eq 255 ]; then
 	goOn
 else
 	read -p "ancora nel if"
-	echo "successfully authenticated to GitHub!"
+	ssh -T git@github.com	# test your SSH connection to GitHub
+	echo "successfully authenticated to GitHub!!"
 	read -p "ancora nel if"
 fi
 
