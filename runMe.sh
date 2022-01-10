@@ -107,7 +107,8 @@ if ssh -q git@github.com &>/dev/null; [ $? -eq 255 ]; then
 	genAndAddSshKey
 	goOn
 else
-	echo "successfully authenticated to GitHub"
+	read -p "ancora nel if"
+	echo "successfully authenticated to GitHub!"
 	read -p "ancora nel if"
 fi
 
