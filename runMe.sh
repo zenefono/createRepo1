@@ -70,9 +70,9 @@ fi
 
 if [ ! -f ./.gitignore ]; then
     echo '.env' > ./.gitignore
-    echo '.env' >> ./runMe.sh
-    echo '.env' >> ./bash_functions
-    echo '.env' >> ./bash_functions/* 
+    echo './runMe.sh' >> ./.gitignore
+    echo './bash_functions' >> ./.gitignore
+    echo './bash_functions/*' >> ./.gitignore
 fi
 
 if [ ! -f ./README.md ]; then
