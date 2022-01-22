@@ -56,7 +56,7 @@ git clone https://github.com/zenefono/bash_functions.git
 . ./bash_functions/testFunctions.sh
 
 ##
-rm -rf ./runMe.sh ./bash_functions
+#rm -rf ./runMe.sh ./bash_functions
 
 gitUsrName="$userName"
 gitUsrEmail="$userEmail"
@@ -70,6 +70,9 @@ fi
 
 if [ ! -f ./.gitignore ]; then
     echo '.env' > ./.gitignore
+    echo '.env' >> ./runMe.sh
+    echo '.env' >> ./bash_functions
+    echo '.env' >> ./bash_functions/* 
 fi
 
 if [ ! -f ./README.md ]; then
