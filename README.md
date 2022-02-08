@@ -1,4 +1,4 @@
-# createRepo1
+# createRepo1 (occhio è in fase di sviluppo! BUGs!!!)
 
 Script per creare un repository col nome della cartella di lavoro attuale e, seguendone le indicazioni, per crearlo anche su GitHub e sincronizzarlo con quello locale.
 
